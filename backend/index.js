@@ -15,6 +15,8 @@ app.use(express.json())
 app.get("/",(req,res)=>{
   res.json('hello')
 })
+
+console.log('deployed!!!')
 const server = http.createServer(app)
 
 const { Server } = require("socket.io")
