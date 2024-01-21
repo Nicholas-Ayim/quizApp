@@ -5,18 +5,23 @@ const http = require("http")
  require("dotenv").config()
 
 app = express()
-app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors())
+app.use(cors({
+       origin:["https://deploy-mern-1whq.vercel.app"],
+        methods: ["GET","POST"],
+        credentials:true
+}))
+app.use(express.json())
+app.get("/",(req,res)=>{
+  res.json('hello')
+})
 const server = http.createServer(app)
 
 const { Server } = require("socket.io")
 
 const io =  new Server(server,{
     cors:{
-        origin:"http://localhost:5173/",
-        methods: ["GET","POST"],
-        credentials:true
+       
 
     }
 })
