@@ -7,7 +7,7 @@ const http = require("http")
 app = express()
 app.use(express.urlencoded({extended:true}))
 app.use(cors({
-       origin:["https://quiz-app-api.vercel.app"],
+       origin:["https://quiz-app-api-ruddy.vercel.app"],
         methods: ["GET","POST"],
         credentials:true
 }))
