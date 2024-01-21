@@ -12,7 +12,7 @@ const QuizRegistration = new mongoose.Schema({
     },
     educationLevel:{
         type:Number,
-        required:[true,"from level 100 to 400"]
+        required:[true,"from leve 100 to 400"]
     }
 })
 
