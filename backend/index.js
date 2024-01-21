@@ -36,7 +36,7 @@ io.on("connection",(socket)=>{
 
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.DB_URI
+const uri = "mongodb+srv://nayy:Newtonfaculty2000@cluster0.drescgl.mongodb.net/Quiz?retryWrites=true&w=majority"
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
