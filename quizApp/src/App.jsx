@@ -4,20 +4,17 @@ import { useQuizRegisterMutation } from "./quizApi/quizApi";
 export default function App() {
   const [name, setName] = useState("");
   const [educationLevel, setEducationLevel] = useState("");
-  const {
-    mutate: quizRegister,
-    isLoading,
-    isError
-  } = useQuizRegisterMutation(); // Destructure and rename mutate
+  const [quizRegister, { isLoading, isError }] = useQuizRegisterMutation(); // Destructure and rename mutate
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(quizRegister);
 
-    // Use the `mutate` function from the data object
-    quizRegister({
-      name,
-      educationLevel
+    quizRegister({ name, educationLevel }).then((data) => {
+      if (data) {
+        console.log("login manager...", data);
+        // navigate("/manager/dashboard");
+      }
     });
   }
 
