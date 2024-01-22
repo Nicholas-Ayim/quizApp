@@ -13,8 +13,8 @@ export default function App() {
     e.preventDefault();
     console.log(quizRegister);
 
-    axios
-      .post("https://quiz-app-rouge-alpha.vercel.app", {
+    await axios
+      .post("https://quiz-app-rouge-alpha.vercel.app/registe", {
         name,
         educationLevel
       })
