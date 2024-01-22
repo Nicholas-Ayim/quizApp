@@ -23,7 +23,9 @@ const { Server } = require("socket.io")
 
 const io =  new Server(server,{
     cors:{
-       
+        origin:["https://quiz-app-cfyz.vercel.app"],
+        methods: ["GET","POST"],
+        credentials:true
 
     }
 })
