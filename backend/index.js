@@ -15,7 +15,7 @@ app.use(cors({
 }))
 app.use(express.json())
 
-app.post("/", async (req, res) => {
+app.get("/", async (req, res) => {
      res.json("a new registration in process")
     try {
         const { name, educationLevel } = req.body;
