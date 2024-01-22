@@ -64,7 +64,7 @@ run().catch(console.dir);
 
 
 const quizRoutes = require("./registrationRoutes/quizRoutes")
-app.use("https://quiz-app-rouge-alpha.vercel.app",quizRoutes)
+app.use("/",quizRoutes)
 
 
 const PORT = process.env.PORT
