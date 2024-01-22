@@ -1,21 +1,30 @@
 import { useState } from "react";
 import { useQuizRegisterMutation } from "./quizApi/quizApi";
+
 export default function App() {
   const [name, setName] = useState("");
   const [educationLevel, setEducationLevel] = useState("");
-  const [quizRegister, { isLoading, isError }] = useQuizRegisterMutation();
+  const {
+    mutate: quizRegister,
+    isLoading,
+    isError
+  } = useQuizRegisterMutation(); // Destructure and rename mutate
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log(quizRegister);
-    quizRegister.mutate({
+
+    // Use the `mutate` function from the data object
+    quizRegister({
       name,
       educationLevel
     });
   }
+
   return (
     <>
       <div>my First Deployment</div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -24,13 +33,11 @@ export default function App() {
         />
         <input
           type="text"
-          name="name"
+          name="educationLevel"
           value={educationLevel}
           onChange={(e) => setEducationLevel(e.target.value)}
         />
-        <button type="submit" onClick={(e) => handleSubmit(e)}>
-          send
-        </button>
+        <button type="submit">send</button>
       </form>
     </>
   );
