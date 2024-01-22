@@ -1,21 +1,31 @@
 import { useState } from "react";
 import { useQuizRegisterMutation } from "./quizApi/quizApi";
-
+import axios from "axios";
 export default function App() {
   const [name, setName] = useState("");
   const [educationLevel, setEducationLevel] = useState("");
   const [quizRegister, { isLoading, isError }] = useQuizRegisterMutation(); // Destructure and rename mutate
 
+  //specifying api with axios
+  axios.defaults.withCredentials = true;
+
   async function handleSubmit(e) {
     e.preventDefault();
     console.log(quizRegister);
 
-    await quizRegister({ name, educationLevel }).then((data) => {
-      if (data) {
-        console.log("login manager...", data);
-        // navigate("/manager/dashboard");
-      }
-    });
+    axios
+      .post("https://quiz-app-rouge-alpha.vercel.app/register", {
+        name,
+        educationLevel
+      })
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
+    // await quizRegister({ name, educationLevel }).then((data) => {
+    //   if (data) {
+    //     console.log("login manager...", data);
+    //     // navigate("/manager/dashboard");
+    //   }
+    // });
   }
 
   return (
