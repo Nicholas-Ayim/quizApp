@@ -7,7 +7,7 @@ export default function App() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(quizRegister);
-    quizRegister({
+    quizRegister.mutate({
       name,
       educationLevel
     });
@@ -22,7 +22,6 @@ export default function App() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input type="file" name="pic" />
         <input
           type="text"
           name="name"

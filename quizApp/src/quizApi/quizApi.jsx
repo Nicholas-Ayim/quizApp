@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const quizApi = createApi({
   reducerPath: "quizApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://quiz-app-rouge-alpha.vercel.app/quiz"
+    baseUrl: "https://quiz-app-rouge-alpha.vercel.app"
   }),
   endpoints: (builder) => ({
     quizRegister: builder.mutation({
