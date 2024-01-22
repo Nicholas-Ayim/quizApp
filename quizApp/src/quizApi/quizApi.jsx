@@ -3,10 +3,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const quizApi = createApi({
   reducerPath: "quizApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/quiz"
+    baseUrl: "https://quiz-app-rouge-alpha.vercel.app/quiz"
   }),
   endpoints: (builder) => ({
-    quizRegister: builder.mutations({
+    quizRegister: builder.mutation({
       query: (data) => ({
         url: "/register",
         method: "POST",
@@ -16,4 +16,5 @@ const quizApi = createApi({
   })
 });
 
+export const { useQuizRegisterMutation } = quizApi;
 export default quizApi;

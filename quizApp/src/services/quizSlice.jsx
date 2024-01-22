@@ -6,7 +6,7 @@ const QuizSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      quizApi.endpoints.managerProfile.matchFulfilled,
+      quizApi.endpoints.quizRegister.matchFulfilled,
       (state, { payload }) => {
         return { ...state, registeredUser: payload };
       }
