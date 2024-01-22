@@ -11,7 +11,7 @@ const QuizRegistration = new mongoose.Schema({
         // required:[true,"please provide a picture"]
     },
     educationLevel:{
-        type:Number,
+        type:String,
         required:[true,"from leve 100 to 400"]
     }
 })
