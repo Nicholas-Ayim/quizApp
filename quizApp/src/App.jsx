@@ -14,7 +14,7 @@ export default function App() {
     console.log(quizRegister);
 
     await axios
-      .post("https://quiz-app-rouge-alpha.vercel.app/registe", {
+      .post("https://quiz-app-rouge-alpha.vercel.app/register", {
         name,
         educationLevel
       })
