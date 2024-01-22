@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { useQuizRegisterMutation } from "./quizApi/quizApi";
 
-//disable devtools fo deployment
-import { disableReactDevTools } from "@fvilers/disable-react-devtools";
-
-// if(process.env.NODE_ENV === "poduction") {
-//   disableReactDevTools()
-// }
 export default function App() {
   const [name, setName] = useState("");
   const [educationLevel, setEducationLevel] = useState("");
   const [quizRegister, { isLoading, isError }] = useQuizRegisterMutation(); // Destructure and rename mutate
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     console.log(quizRegister);
 
-    quizRegister({ name, educationLevel }).then((data) => {
+    await quizRegister({ name, educationLevel }).then((data) => {
       if (data) {
         console.log("login manager...", data);
         // navigate("/manager/dashboard");

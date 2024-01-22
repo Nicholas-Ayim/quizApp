@@ -8,7 +8,7 @@ const quizApi = createApi({
   endpoints: (builder) => ({
     quizRegister: builder.mutation({
       query: (data) => ({
-        url: "/register",
+        url: "/",
         method: "POST",
         body: data
       })

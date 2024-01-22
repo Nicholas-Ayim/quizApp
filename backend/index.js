@@ -1,5 +1,7 @@
 const mongoose = require("mongoose")
 const express = require("express")
+const UserRegistration = require("../backend/quizRegistration/quizRegister")
+
 const cors = require("cors")
 const http = require("http")
  require("dotenv").config()
@@ -12,9 +14,26 @@ app.use(cors({
         credentials:true
 }))
 app.use(express.json())
-app.get("/",(req,res)=>{
-  res.json('hello')
-})
+
+app.post("/", async (req, res) => {
+     res.json("a new registration in process")
+    try {
+        const { name, educationLevel } = req.body;
+        const newRegistration = await UserRegistration.create({
+            name,
+            educationLevel,
+        });
+        res.json('successfully registered', newRegistration);
+        console.log('registered successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' }); // Add an error response
+    }
+  })
+
+// app.get("/",(req,res)=>{
+//   res.json('hello')
+// })
 
 console.log('deployed!!!')
 const server = http.createServer(app)
@@ -63,11 +82,11 @@ async function run() {
 run().catch(console.dir);
 
 
-const quizRoutes = require("./registrationRoutes/quizRoutes")
-app.use("/",quizRoutes)
+// const quizRoutes = require("./registrationRoutes/quizRoutes")
+// app.use("/",quizRoutes)
 
 
 const PORT = process.env.PORT
 server.listen(PORT,()=>{
     console.log(`connected to PORT ${PORT}`)
-})           
+})          
