@@ -8,7 +8,7 @@ const QuizRegistration = new mongoose.Schema({
     
     picture:{
         type:String,
-        required:[true,"please provide a picture"]
+        // required:[true,"please provide a picture"]
     },
     educationLevel:{
         type:Number,

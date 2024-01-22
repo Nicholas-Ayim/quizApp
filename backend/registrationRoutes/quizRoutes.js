@@ -3,13 +3,13 @@ const UserRegistration = require("../quizRegistration/quizRegister")
 
 router.post("/register",async(res,req)=>{
     try{
-       const {name,picture,educationLevel} = UserRegistration
+       const {name,educationLevel} = req.body
        const newRegistration = await UserRegistration.create({
         name,
-        picture,
         educationLevel,
        })
        res.json('successfully registered',newRegistration)
+       console.log('registered successfully')
     }catch(error){
         console.log(error)
     }

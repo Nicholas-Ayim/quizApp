@@ -14,4 +14,5 @@ const QuizSlice = createSlice({
   }
 });
 export const selectRegistered = (state) => state.quiz.registeredUser;
+export const selectAll = (state) => state.quiz;
 export default QuizSlice.reducer;
